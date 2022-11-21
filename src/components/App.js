@@ -5,7 +5,7 @@ export default function App() {
   return (
     <>
       <div class="root">
-        <Navbar />
+        <Navbar/>
         <Corpo />
         <div class="fundo-mobile">
           <ion-icon name="home"></ion-icon>

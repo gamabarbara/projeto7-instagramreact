@@ -313,6 +313,29 @@ body {
 .liked {
   color: #ED4956;
 }
+.heart {
+  color: #fff;
+  font-size: 150px;
+  position: absolute;
+  animation-name: s2;
+  animation-duration: 0.3s;
+  left: 720px;
+  top: 500px;
+    
+}
+
+@keyframes s2 {
+  from {
+    -webkit-transform: scale(0.2);
+    transform: scale(0.2);
+    opacity: 0;
+  } to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+
+}
 
 @media (max-width: 935px) {
   .sidebar {

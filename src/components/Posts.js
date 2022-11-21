@@ -23,6 +23,7 @@ function Post(props) {
     if (!foiCurtido) {
       setFoiCurtido(true);
       setContador(contador + 1);
+
     }
   }
 
@@ -38,14 +39,11 @@ function Post(props) {
         </div>
       </div>
 
-      <div class="conteudo">
-        <img
-          src={props.imagemPost}
-          onDoubleClick={mudaLikeImagem}
-          data-test="post-image"
-        />
-      </div>
+      <div class="conteudo" onDoubleClick={mudaLikeImagem}>
+        {foiCurtido ? <ion-icon name="heart" class="heart"></ion-icon> : ""}
 
+        <img src={props.imagemPost} data-test="post-image" />
+      </div>
       <div class="fundo">
         <div class="acoes">
           <div>
