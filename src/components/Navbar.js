@@ -1,4 +1,4 @@
-export default function Navbar(props) {
+export default function Navbar() {
   return (
     <div class="navbar">
       <div class="container">

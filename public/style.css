@@ -321,17 +321,20 @@ body {
   animation-duration: 0.3s;
   left: 720px;
   top: 500px;
+  animation: s2 1s ease-in-out forwards;
     
 }
 
 @keyframes s2 {
-  from {
-    -webkit-transform: scale(0.2);
+  0% {
     transform: scale(0.2);
-    opacity: 0;
-  } to {
-    -webkit-transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
     transform: scale(1);
+    color: transparent;
   }
 
 
