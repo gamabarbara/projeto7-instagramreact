@@ -4,6 +4,7 @@ function Post(props) {
   const [foiSalvo, setFoiSalvo] = useState(props.foiSalvo);
   const [foiCurtido, setFoiCurtido] = useState(props.foiCurtido);
   const [contador, setContador] = useState(props.curtidasNumero);
+  const [animacao, setAnimacao] = useState(false);
 
   function mudaSalvo() {
     setFoiSalvo(!foiSalvo);
@@ -11,6 +12,7 @@ function Post(props) {
 
   function mudaCurtido() {
     if (!foiCurtido) {
+      setAnimacao(true);
       setContador(contador + 1);
       setFoiCurtido(!foiCurtido);
     } else {
@@ -19,11 +21,16 @@ function Post(props) {
     }
   }
 
-  function mudaLikeImagem() {
-    if (!foiCurtido) {
-      setFoiCurtido(true);
-      setContador(contador + 1);
-
+  function mudaLikeImagem(event) {
+    if (event.detail === 2) {
+      setAnimacao(true);
+      if (!foiCurtido) {
+        setContador(contador + 1);
+        setFoiCurtido(true);
+      }
+     setTimeout(() => {
+      setAnimacao(false);
+     }, 500);
     }
   }
 
@@ -39,11 +46,18 @@ function Post(props) {
         </div>
       </div>
 
-      <div class="conteudo" onDoubleClick={mudaLikeImagem}>
-        {foiCurtido ? <ion-icon name="heart" class="heart"></ion-icon> : ""}
-
-        <img src={props.imagemPost} data-test="post-image" />
+      <div class="conteudo">
+        <img
+          onDoubleClick={mudaLikeImagem}
+          src={props.imagemPost}
+          data-test="post-image"
+        />
+        <ion-icon
+          name="heart"
+          class={`heart ${animacao ? "scale-up-center" : "invisible"}`}
+        ></ion-icon>
       </div>
+
       <div class="fundo">
         <div class="acoes">
           <div>
